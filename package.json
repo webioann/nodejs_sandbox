@@ -1,0 +1,12 @@
+{
+  "name": "NODEJS-SANDBOX",
+  "version": "1.0.0",
+  "description": "Node js sandbox project",
+  "license": "ISC",
+  "author": "Webioann",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

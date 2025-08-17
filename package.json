@@ -6,6 +6,10 @@
   "author": "Webioann",
   "type": "commonjs",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webioann/nodejs_sandbox.git"
+    },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }

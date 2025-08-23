@@ -1,0 +1,19 @@
+section{
+    min-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+}
+.home-page{
+    background-color: green;
+    color: white
+}
+.about-page{
+    background-color: blue;
+    color: white
+}
+.notfound-page{
+    background-color: red;
+    color: white
+}

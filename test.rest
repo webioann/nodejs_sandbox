@@ -1,0 +1,9 @@
+### POST ENDPOINT REQUEST
+POST http://localhost:8383/api/data?name=Alexander HTTP/1.1
+Content-Type: application/json
+
+{
+    "age": 48,
+    "city": "Danver"
+}
+

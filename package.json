@@ -9,8 +9,11 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/webioann/nodejs_sandbox.git"
-    },
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
 }

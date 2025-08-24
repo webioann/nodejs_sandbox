@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const app = express();      
 const PORT = 8383;
 
@@ -13,5 +14,22 @@ app.get('/', (req, res) => {
     res.sendStatus(200)
     res.end();
 })
+// API endpoint
+app.get('/api/data', (req, res) => {
+    const data = fs.readFileSync('./server/db/raw.json', 'utf8');
+    res.send(data); 
+    res.end();
+});
+// POST endpoint
+app.use(express.json());
+let name = { name: "Julia" }
+app.post('/api/data', (req, res) => {
+    let body1 = req.body;
+    res.setHeaders('Content-Type', 'application/json');
+    name.push(body1.name);
+    res.sendStatus(201);
+    console.log(name);
+    res.end();
+});
 
 app.listen(PORT);

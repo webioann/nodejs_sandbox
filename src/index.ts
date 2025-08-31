@@ -2,19 +2,10 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 const app = express();
-
-
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {console.log(`Server is running on port ${PORT}`)});
 
-app.get('/', (req, res) => {
-    // let html = fs.readFileSync('./public/home.html', 'utf-8');
-    // res.send(<h1>Hello, World from my new server!</h1>);
-    // res.sendFile(path.join(__dirname, 'home.html'));
-    // res.sendStatus(200).send({msg: 'Hello, World from my new server!'});
-    // console.log(`Server is running on port ${PORT}`)
-});
 type User = {
     uid: number
     age: number
@@ -74,4 +65,20 @@ app.get('/api/usersFilter', (req, res) => {
         let filteredData = data.filter(user => user.name.toLowerCase() === nameFilter?.toLowerCase());
         res.json(filteredData);
     }
+})
+app.use(express.json());
+// POST /api/users
+app.post('/api/users', express.json(), (req, res) => {
+    const { body } = req;
+    if(data.length > 0) {
+        const newUser: User = { uid : data.length + 1, ...body }
+        data.push(newUser);
+        res.status(201).json(newUser);
+    }
+    else{ 
+        const newUser: User = { uid : 1, ...body }
+        data.push(newUser);
+        res.status(201).json(newUser);
+    }
+    console.log(body);
 })

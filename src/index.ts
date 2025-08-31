@@ -1,3 +1,12 @@
-let msg: string = "You are run Typescript inside Node js !";
-let raw = true
-console.log(msg, typeof raw);
+import express from 'express';
+const app = express();
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {console.log(`Server is running on port ${PORT}`)});
+
+app.get('/', (req, res) => {
+    res.send('Hello, World from my new server!');
+    console.log(`Server is running on port ${PORT}`)
+});
+

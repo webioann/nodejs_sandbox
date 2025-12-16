@@ -1,18 +1,14 @@
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
+import type { User } from './types.ts';
 const app = express();
-const PORT = process.env.PORT || 3000;
+import dotenv from 'dotenv';
+dotenv.config({path: "./.env.local"});
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {console.log(`Server is running on port ${PORT}`)});
 
-type User = {
-    uid: number
-    age: number
-    sex: 'male' | 'female'
-    name: string
-    email: string
-}
 
 const data: Array<User> = [
     {"uid":1,"age":48,"sex":"male","name":"David","email":"example@google.com"},

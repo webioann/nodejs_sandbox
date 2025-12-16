@@ -11,11 +11,12 @@
     "url": "https://github.com/webioann/nodejs_sandbox.git"
   },
   "scripts": {
-    "dev": " npx nodemon",
-    "prebuild": "rimraf ./build && npx tsc",
-    "build": "npm run prebuild && node build/index.js"
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon",
+    "build": "tsc"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
     "express": "^5.1.0"
   },
   "devDependencies": {

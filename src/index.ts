@@ -1,14 +1,21 @@
 import express from 'express';
 import fs from 'fs';
 import path from 'path';
-const app = express();
-import { data } from './data.ts';
-import { add, multiply, subtract, divide } from './math.ts';
+import { fileURLToPath } from 'url';
 import { dirname } from 'node:path';
+// import { data } from './data.ts';
+// import { add, multiply, subtract, divide } from './math.ts';
 // .env configuration
 import dotenv from 'dotenv';
+import { dir } from 'node:console';
 dotenv.config({path: "./.env.local"});
+
+const app = express();
+
 const PORT = process.env.PORT || 3000;
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+
 // Read text file
 fs.readFile(path.join('src', 'text.txt'), 'utf8', (err, data) => {
     if (err) {
@@ -17,31 +24,15 @@ fs.readFile(path.join('src', 'text.txt'), 'utf8', (err, data) => {
     }
     console.log(data);
 });
-// Write to text file
-const content = 'This is some content to write to the file.';
-// fs.writeFile(path.join('src', 'output.txt'), content, err => {
-//     if (err) {  
-//         console.error(err);
-//         return;
-//     }
-//     console.log('File has been written');
-// });
-// Append file and folder creation
-fs.appendFile(path.join('src', 'output.txt'), content, err => {
-    if (err) {  
-        console.error(err);
-        return;
-    }
-    console.log('Folder was created and content appended to file');
-});
 
-
+// app.use(express.static(path.join(__dirname, 'src')));
 
 const logMassage = `Server is running on port ${PORT} and OS ${fs}`
 
-app.listen(PORT, () => {
+app.listen(PORT, () => { 
     console.log(logMassage)
-    console.log(add(5, 3));
+    console.log(__dirname) 
+    console.log(path.parse(__dirname).dir)
 });
 
 
